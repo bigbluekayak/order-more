@@ -1,0 +1,9 @@
+{
+    "name": "Order More",
+    "description": "Allow customers to place repeat orders, e.g. medication",
+    "addons": [
+        {
+            "plan": "sendgrid:starter"
+        }
+    ]
+}
