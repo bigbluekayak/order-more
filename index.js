@@ -2,8 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-var path = require('path');
-var serveStatic = require('serve-static');
+const path = require('path');
+const serveStatic = require('serve-static');
+const orders = require('./db/orders');
+
 
 const app = express();
 
@@ -16,6 +18,18 @@ app.get('/api', (req, res) => {
     res.json({
         message: 'Hello World!'
     });
+});
+
+app.post('/api', (req, res) => {
+    console.log(req.body);
+
+    orders.create(req.body).then((order) => {
+        res.json(order);
+    }).catch((error) => {
+        res.status(500);
+        res.json(error);
+    });
+
 });
 
 const port = process.env.PORT || 4000;

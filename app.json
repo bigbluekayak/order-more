@@ -1,14 +1,21 @@
 {
     "name": "Order More",
-    "description": "Allow customers to place repeat orders, e.g. medication",
-    "keywords": [
-        "repeat",
-        "order"
-    ],
     "repository": "https://github.com/bigbluekayak/order-more",
+    "env": {
+        "RECIPIENT_EMAIL": {
+            "description": "The email where the order notification is sent",
+            "required": "true"
+        }
+    },
     "addons": [
         {
             "plan": "sendgrid:starter"
+        },
+        {
+            "plan": "mongolab:sandbox"
+        },
+        {
+            "plan": "papertrail:choklad"
         }
     ]
 }
