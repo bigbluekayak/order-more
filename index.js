@@ -12,11 +12,7 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(serveStatic('./client/dist/'));
-
-app.get('/', function(req,res) {
-    res.sendFile('index.html', { root: './client/dist/' } );
-});
+app.use(serveStatic(__dirname + "/client/dist"));
 
 app.get('/api', (req, res) => {
     res.json({
