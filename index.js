@@ -12,7 +12,7 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(serveStatic(__dirname + "./client/dist"));
+app.use(serveStatic(__dirname + "/client/dist"));
 
 app.get('/api', (req, res) => {
     res.json({
